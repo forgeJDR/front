@@ -1,0 +1,26 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Déclencher le déploiement uniquement depuis la branche principale
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Récupère le code du référentiel
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2  # Configure l'environnement Node.js
+
+      - name: Install dependencies
+        run: npm install  # Installez les dépendances du projet
+
+      - name: Build and deploy
+        run: |
+          npm run build  # Script de build spécifique à votre projet
+          npm install -g github-pages-deploy-action  # Installe l'action pour le déploiement
+          gh-pages-deploy --dist ./dist --branch gh-pages --remote origin --add
