@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Déclencher le déploiement uniquement depuis la branche principale
+      - main
 
 jobs:
   deploy:
@@ -11,19 +11,19 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Récupère le code du référentiel
+        uses: actions/checkout@v2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2  # Configure l'environnement Node.js
+        uses: actions/setup-node@v2
 
       - name: Install dependencies
-        run: npm install  # Installez les dépendances du projet
+        run: npm install
 
-      - name: Install gh-pages-deploy action
-        run: npm install -g github-pages-deploy-action@latest
+      - name: Build
+        run: npm run build
 
-      - name: Build and deploy
-        run: |
-          npm run build  # Script de build spécifique à votre projet
-          npm install -g github-pages-deploy-action  # Installe l'action pour le déploiement
-          gh-pages-deploy --dist ./dist --branch gh-pages --remote origin --add
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist # Modifier le chemin si nécessaire
