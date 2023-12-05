@@ -22,11 +22,9 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Configure Git and Deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.email "github@example.com"
-          git config --global user.name "GitHub Actions"
-          npm install -g github-pages-deploy-action@v4
-          npx gh-pages -d dist -b releases/v4 -u "${GITHUB_TOKEN}"
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: dist # The folder the action should deploy.
