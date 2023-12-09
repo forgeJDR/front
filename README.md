@@ -1,6 +1,27 @@
-# forgeJDR
+# Frontend de ForgeJDR
 
-This template should help get you started developing with Vue 3 in Vite.
+## Présentation projet
+Créer une plateforme permettant au passionnés de jeu de rôle de partager leurs univers.
+
+## Stack
+Ce projet en lien avec ce back : https://github.com/forgeJDR/back
+Et également une base de données hébergé sur MongoDB. 
+
+## Workflow 
+Voici un ensemble de règles décrivant le workflow de ce projet :
+ - Main est sacré, pas de push direct, utilisation de PR obligatoire
+ - Pas de branche develop
+ - La création d'une branche provient forcement d'une issue GitHub
+ - Si le développement d'une issue/Branche est terminé, une PR doit être validé par le testeur
+
+## Rôle
+ - Testeur + Product owner : Vanessa Chriss
+ - Développeur back : Julien et Bruno
+ - Référent quand le product owner n'est pas disponible : Laura
+
+## Installation
+Pour commencer à développer sur ce projet, il vous faudra : 
+ - Installer NPM
 
 ## Recommended IDE Setup
 
