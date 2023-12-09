@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_ac006cd4c4334da2a119a487fb33e866 }}/guiletjulien/forgejdrfront:${{ github.sha }}
+        tags: index.docker.io/guiletjulien/forgejdrfront:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'Front-ForgeJDR'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_6eb2b9a4e5c84ba5b3aa98ae7082bf98 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_ac006cd4c4334da2a119a487fb33e866 }}/guiletjulien/forgejdrfront:${{ github.sha }}'
+        images: 'index.docker.io/guiletjulien/forgejdrfront:${{ github.sha }}'
