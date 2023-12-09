@@ -16,7 +16,7 @@ Voici un ensemble de règles décrivant le workflow de ce projet :
 
 ## Rôle
  - Testeur + Product owner : Vanessa Chriss
- - Développeur back : Julien et Bruno
+ - Développeur front : Max et Laura
  - Référent quand le product owner n'est pas disponible : Laura
 
 ## Installation
